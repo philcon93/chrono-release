@@ -3,7 +3,7 @@ var GitHubApi = require('@octokit/rest')
 // Pass commit data into this function to format a markdown commit note.
 // Data structure is based on what Github's compare endpoint returns.
 function formatNotes(data){
-	return data.map(commit => `- [${commit.author.login}](${commit.author.html_url}) ${commit.commit.message} [${commit.sha}](${commit.html_url})`).join('\n')
+	return data.map(commit => `- [:information_source:](${commit.html_url}) - ${commit.commit.message} - [${commit.author.login}](${commit.author.html_url})`).join('\n')
 }
 
 // This function generates a date-based version number.
