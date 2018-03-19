@@ -5,13 +5,12 @@ This script will create a release for a specified Github repository. It will gen
 ## Usage
 
 ```
-node index.js <USERNAME> <PASSWORD> <REPO_OWNER_USERNAME> <REPO_NAME> [draft]
+node index <TOKEN> <REPO_OWNER_USERNAME> <REPO_NAME> [draft]
 ```
 
 ## Params
 
-- USERNAME - Github username **required**
-- PASSWORD - Github password **required**
+- TOKEN - Github Personal access tokens - https://github.com/settings/tokens **required**
 - REPO_OWNER_USERNAME - Owner of the Github repo username **required**
 - REPO_NAME - Github repo name **required**
 - draft - Make a draft release instead of a public release, not including this will make the release public **optional**

@@ -26,21 +26,19 @@ function generateVersionNumber(previousVersion){
 
 var github = new GitHubApi();
 var releaseData = {
-	username: process.argv[2],
-	password: process.argv[3],
+	token: process.argv[2],
 	base: '',
 	repository: {
-		owner: process.argv[4],
-		name: process.argv[5]
+		owner: process.argv[3],
+		name: process.argv[4]
 	},
-	'draft': process.argv[6] == 'draft' ? true : false,
+	'draft': process.argv[5] == 'draft' ? true : false,
 	name: ''
 }
 
 github.authenticate({
-	type: 'basic',
-	username: releaseData.username,
-	password: releaseData.password
+	type: 'token',
+	token: releaseData.token
 })
 
 function setBase(n){
