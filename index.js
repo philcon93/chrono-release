@@ -22,10 +22,14 @@ function setBase(tag){
 	return n
 }
 
-// Get latest version
-// Get current git tag
-// Get new git tag
-// Update package.json
-// Update git tag
-// Ask if want to update remote
+
+
+// require shelljs
+// require semver
+
+// check if git 
+// store tag number
+// check if tag number is semver
+// store new tag number
+// npm version new tag number
 // git push
