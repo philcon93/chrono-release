@@ -7,8 +7,8 @@ This script will create a release for the repository. It will generate a version
 ## Usage
 
 ```
-chrono trigger
-chrono version
+chrono trigger // chrono -t
+chrono version // chrono -v
 ```
 
 ## Functions
