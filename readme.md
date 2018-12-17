@@ -2,27 +2,22 @@
 
 # Chrono Release
 
-This script will create a release for the repository. It will generate a version number (based on [chronological versioning](https://gist.github.com/brandonsheppard/d242ba4ba99923d332f1afdcfa4fbf86)).
+Creates a new git tag for a git repository. It will generate a version number, based on chronological versioning..
 
 ## Usage
 
 ```
-chrono trigger // chrono -t
-chrono version // chrono -v
+chrono-release trigger
 ```
 
-## Functions
-
-### generateVersionNumber()
-
-This function generates a date-based version number.
+Generates a date-based version number.
 
 - Year + Month + Iteration
 
-So, the first release in March 2017 would be `17.3.0`
+So, the first release in March 2019 would be `19.3.0`
 
-#### Multiple releases per month
+**Multiple releases per month**
 
-If multiple releases occur in a month, the final number will increase. Otherwise, an entirely new version number will be generated. i.e: `generateVersionNumber('17.12.10');`
+If multiple releases occur in a month, the final number will increase. Otherwise, an entirely new version number will be generated.
 
-Given that the date is 2017-12-01 (day is irrelevant) and there has already been a release this month: `17.12.11`
+Given that the date is 2019-03-05 (day is irrelevant) and there has already been  release this month, the next release number will be: `19.3.1`

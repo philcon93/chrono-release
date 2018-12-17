@@ -10,7 +10,8 @@ program
 program
 	.command('trigger')
 	.alias('t')
-	.description('Compiles a Neto theme for the theme store')
+	.option('-t, --test', 'Do a test run')
+	.description('Creates a new git tag for a git repository. It will generate a version number, based on chronological versioning.')
 	.action(function (options){
 		trigger(options)
 	});

@@ -1,18 +1,35 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
 const shell = require('shelljs')
 const chalk = require('chalk')
 const log = console.log
 const success = chalk.green
 const warning = chalk.yellow
 
+const config = {
+    baseVersion: '0.0.0',
+    gitVersions: 'git tag',
+    newestVersion: 'git describe --abbrev=0 --tags'
+}
+
+// Returns existing tag
+function existingTag(){
+    let oldVersion
+    let versions = shell.exec(config.gitVersions)
+
+    if(versions.length > 1){
+        oldVersion = shell.exec(config.newestVersion)
+    }else{
+        oldVersion = config.baseVersion
+    }
+    return oldVersion
+}
 // Generates a date-based tag number
-function generateVersionNumber(previousVersion){
+function generateTag(oldVersion){
 	let today = new Date()
-	var newMajor = `${today.getFullYear()}.${parseInt(today.getMonth()) + 1}`
+	let newMajor = `${today.getFullYear()}.${parseInt(today.getMonth()) + 1}`
 	newMajor = newMajor.substr(2)
-	oldMajorArr = previousVersion.split('.')
+	oldMajorArr = oldVersion.split('.')
 	oldMajor = `${oldMajorArr[0]}.${oldMajorArr[1]}`
 
 	if(oldMajor == newMajor){
@@ -23,22 +40,18 @@ function generateVersionNumber(previousVersion){
 	return newVersion
 }
 
-// Returns existing tag
-function setBase(tag){
-	releaseData.base = tag
-	return n
-}
-
-// require shelljs
-// require semver
-
-// check if git 
-// store tag number
-// check if tag number is semver
-// store new tag number
-// npm version new tag number
-// git push
-
 module.exports.trigger = (opt) => {
-    var options = opt
+    let options = opt
+    let currentTag = existingTag()
+    let newVersion = generateTag(currentTag)
+
+	log(warning("Chrono Release 🕙"))
+    log(warning("Creating new tag..."))
+    console.log(options.test)
+    if(options.test == undefined){
+        shell.exec(`git tag ${newVersion}`)
+        // shell.exec('git tag origin --tags')
+    }
+
+    log(success(`${newVersion}`))
 }

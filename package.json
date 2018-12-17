@@ -1,7 +1,7 @@
 {
   "name": "chrono-release",
   "version": "0.0.1",
-  "description": "This script will create a release for the repository. It will generate a version number (based on [chronological versioning](https://gist.github.com/brandonsheppard/d242ba4ba99923d332f1afdcfa4fbf86)).",
+  "description": "Creates a new git tag for a git repository. It will generate a version number, based on chronological versioning.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
