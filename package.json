@@ -1,6 +1,6 @@
 {
   "name": "chrono-release",
-  "version": "0.0.1",
+  "version": "18.12.1",
   "description": "Creates a new git tag for a git repository. It will generate a version number, based on chronological versioning.",
   "main": "index.js",
   "scripts": {
