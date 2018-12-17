@@ -47,7 +47,6 @@ module.exports.trigger = (opt) => {
 
 	log(warning("Chrono Release 🕙"))
     log(warning("Creating new tag..."))
-    console.log(options.test)
     if(options.test == undefined){
         shell.exec(`git tag ${newVersion}`)
         // shell.exec('git tag origin --tags')
