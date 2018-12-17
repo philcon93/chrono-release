@@ -9,7 +9,8 @@ const warning = chalk.yellow
 const config = {
     baseVersion: '0.0.0',
     gitVersions: 'git tag',
-    newestVersion: 'git describe --abbrev=0 --tags'
+    newestVersion: 'git describe --abbrev=0 --tags',
+    pushVersion: 'git push origin --tags'
 }
 
 // Returns existing tag
@@ -49,7 +50,7 @@ module.exports.trigger = (opt) => {
     log(warning("Creating new tag..."))
     if(options.test == undefined){
         shell.exec(`git tag ${newVersion}`)
-        // shell.exec('git tag origin --tags')
+        // shell.exec(pushVersion)
     }
 
     log(success(`${newVersion}`))
