@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/philcon93/chrono-release#readme",
   "dependencies": {
-    "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "shelljs": "^0.8.3"
   }

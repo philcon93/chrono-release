@@ -1,11 +1,6 @@
 #!/usr/bin/env node
 
 const shell = require('shelljs')
-const chalk = require('chalk')
-const log = console.log
-const success = chalk.green
-const warning = chalk.yellow
-
 const config = {
     baseVersion: '0.0.0',
     gitVersions: 'git tag',
@@ -16,11 +11,13 @@ const config = {
 // Returns existing tag
 function existingTag(){
     let oldVersion
-    let versions = shell.exec(config.gitVersions)
+    let versions = shell.exec(config.gitVersions, {silent:true})
 
     if(versions.length > 1){
+        console.log("Existing tag...")
         oldVersion = shell.exec(config.newestVersion)
     }else{
+        console.log("No existing tag...")
         oldVersion = config.baseVersion
     }
     return oldVersion
@@ -42,16 +39,16 @@ function generateTag(oldVersion){
 }
 
 module.exports.trigger = (opt) => {
+    console.log("Chrono Release 🕙")
     let options = opt
     let currentTag = existingTag()
     let newVersion = generateTag(currentTag)
 
-	log(warning("Chrono Release 🕙"))
-    log(warning("Creating new tag..."))
+    console.log("Creating new tag...")
     if(options.test == undefined){
         shell.exec(`git tag ${newVersion}`)
         // shell.exec(pushVersion)
     }
 
-    log(success(`${newVersion}`))
+    console.log(`${newVersion}`)
 }
